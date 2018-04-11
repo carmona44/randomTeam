@@ -37,32 +37,42 @@
 
     <ion-pane>
       <ion-header-bar class="bar-positive">
-        <h1 class="title">Random Team</h1>
+        <h1 class="title title-center">Random Team</h1>
+        <button class="button button-clear icon ion-help-circled" style="vertical-align: 0;"></button>
       </ion-header-bar>
 
       <ion-content>
-        <div class="list">
-          <div class="item item-input-inset">
-            <label class="item-input-wrapper">
-              <input type="text" placeholder="Nombre">
-            </label>
-            <label class="item item-select">
-              <select>
-                <option selected>Nivel 1</option>
-                <option>Nivel 2</option>
-                <option>Nivel 3</option>
-                <option>Nivel 4</option>
-                <option>Nivel 5</option>
-              </select>
-            </label>
+        <div class="list card">
+          <div class="item-divider">
+            <h4 style="padding-left: 10px; color: #116262">
+              <i class="icon ion-edit" style="padding-right: 5px;"></i>Añadir jugador
+              <button class="button button-balanced button-fab" style="float: right;">
+                <i class="icon ion-plus-round"></i>
+              </button>
+            </h4>
           </div>
-          <div class="item item-checkbox">
-            <label class="checkbox">
-              <input type="checkbox">
-            </label> Portero
+          <div class="list">
+            <div class="item item-input-inset">
+              <label class="item-input-wrapper">
+                <input type="text" placeholder="Nombre">
+              </label>
+              <label class="item">
+                <select style="border: hidden;">
+                  <option selected>Nivel 1</option>
+                  <option>Nivel 2</option>
+                  <option>Nivel 3</option>
+                  <option>Nivel 4</option>
+                  <option>Nivel 5</option>
+                </select>
+              </label>
+            </div>
+            <div class="item item-checkbox">
+              <label class="checkbox">
+                <input type="checkbox">
+              </label> Portero
+            </div>
           </div>
         </div>
-
       </ion-content>
     </ion-pane>
   </body>
