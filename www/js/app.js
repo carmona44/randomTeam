@@ -22,3 +22,21 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+.controller('PrincipalController', principalController);
+
+function principalController($scope) {
+  $scope.data = {
+    nombre: '',
+    nivel: 'Nivel 1',
+    esPortero: false
+  };
+
+  $scope.nuevoJugador = function () {
+    console.log('Nombre: ' + $scope.data.nombre + '\nNivel: ' + $scope.data.nivel + '\nPortero: ' + $scope.data.esPortero);
+    $scope.data.nombre = '';
+    $scope.data.nivel = 'Nivel 1';
+    $scope.data.esPortero = false;
+    console.log('Nombre: ' + $scope.data.nombre + '\nNivel: ' + $scope.data.nivel + '\nPortero: ' + $scope.data.esPortero);
+  }
+}

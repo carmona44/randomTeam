@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="starter">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -33,8 +33,7 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
   </head>
-  <body ng-app="starter">
-
+  <body ng-controller="PrincipalController">
     <ion-pane>
       <ion-header-bar class="bar-positive">
         <h1 class="title title-center">Random Team</h1>
@@ -46,7 +45,7 @@
           <div class="item-divider">
             <h4 style="padding-left: 10px; color: #116262">
               <i class="icon ion-edit" style="padding-right: 5px;"></i>Añadir jugador
-              <button class="button button-balanced button-fab" style="float: right;">
+              <button class="button button-balanced button-fab" style="float: right;" ng-click="nuevoJugador()">
                 <i class="icon ion-plus-round"></i>
               </button>
             </h4>
@@ -54,10 +53,10 @@
           <div class="list">
             <div class="item item-input-inset">
               <label class="item-input-wrapper">
-                <input type="text" placeholder="Nombre">
+                <input type="text" placeholder="Nombre" ng-model="data.nombre">
               </label>
               <label class="item">
-                <select style="border: hidden;">
+                <select style="border: hidden;" ng-model="data.nivel">
                   <option selected>Nivel 1</option>
                   <option>Nivel 2</option>
                   <option>Nivel 3</option>
@@ -68,7 +67,7 @@
             </div>
             <div class="item item-checkbox">
               <label class="checkbox">
-                <input type="checkbox">
+                <input type="checkbox" ng-model="data.esPortero">
               </label> Portero
             </div>
           </div>
