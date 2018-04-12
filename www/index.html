@@ -37,14 +37,15 @@
     <ion-pane>
       <ion-header-bar class="bar-positive">
         <h1 class="title title-center">Random Team</h1>
-        <button class="button button-clear icon ion-help-circled" style="vertical-align: 0;"></button>
+        <button class="button button-clear icon ion-help-circled" style="vertical-align: 0;" ng-click="mostrarAyuda()"></button>
       </ion-header-bar>
 
       <ion-content>
+        <!-- Formulario nuevo jugador -->
         <div class="list card">
           <div class="item-divider">
             <h4 style="padding-left: 10px; color: #116262">
-              <i class="icon ion-edit" style="padding-right: 5px;"></i>Añadir jugador
+              <i class="icon ion-edit"></i> Añadir jugador
               <button class="button button-balanced button-fab" style="float: right;" ng-click="nuevoJugador()">
                 <i class="icon ion-plus-round"></i>
               </button>
@@ -70,6 +71,39 @@
                 <input type="checkbox" ng-model="data.esPortero">
               </label> Portero
             </div>
+          </div>
+        </div>
+
+        <!-- Listado de jugadores -->
+        <div class="list card">
+          <div class="item-divider">
+            <h4 style="padding-left: 10px; color: #116262">
+              <i class="icon ion-android-list"></i> Lista de jugadores
+              <span style="float: right; padding-right: 10px;">{{jugadores.length}}</span>
+            </h4>
+          </div>
+          <ion-list show-delete="true">
+            <ion-item ng-repeat="jugador in jugadores">
+              <p>
+                <strong>{{jugador.nombre}}</strong> --> {{jugador.nivel}}
+                <i class="icon ion-android-hand" style="float: right; padding-right: 15px;" ng-show="jugador.esPortero"></i>
+              </p>
+              <ion-delete-button class="button-clear icon ion-android-cancel"
+                                 ng-click="jugadores.splice($index, 1)" style="padding: 0px;">
+              </ion-delete-button>
+            </ion-item>
+          </ion-list>
+          <div style="text-align: center;" ng-show="jugadores.length > 0">
+            <button class="button button-balanced button-small" style="margin-bottom: 15px;">Hacer equipos</button>
+          </div>
+        </div>
+
+        <!-- Equipos -->
+        <div class="list card">
+          <div class="item-divider">
+            <h4 style="padding-left: 10px; color: #116262">
+              <i class="icon ion-ios-football"></i> Equipos
+            </h4>
           </div>
         </div>
       </ion-content>

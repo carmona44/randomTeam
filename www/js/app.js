@@ -25,18 +25,33 @@ angular.module('starter', ['ionic'])
 
 .controller('PrincipalController', principalController);
 
-function principalController($scope) {
+function principalController($scope, $ionicPopup) {
   $scope.data = {
     nombre: '',
     nivel: 'Nivel 1',
     esPortero: false
   };
 
+  $scope.jugador = {};
+  $scope.jugadores = [];
+
   $scope.nuevoJugador = function () {
-    console.log('Nombre: ' + $scope.data.nombre + '\nNivel: ' + $scope.data.nivel + '\nPortero: ' + $scope.data.esPortero);
-    $scope.data.nombre = '';
-    $scope.data.nivel = 'Nivel 1';
-    $scope.data.esPortero = false;
-    console.log('Nombre: ' + $scope.data.nombre + '\nNivel: ' + $scope.data.nivel + '\nPortero: ' + $scope.data.esPortero);
+    if($scope.data.nombre != ''){
+      $scope.jugador = {
+        nombre: $scope.data.nombre,
+        nivel: $scope.data.nivel,
+        esPortero: $scope.data.esPortero
+      }
+      $scope.jugadores.push($scope.jugador);
+      $scope.data.nombre = '';
+      $scope.data.esPortero = false;
+    }
+  }
+
+  $scope.mostrarAyuda = function () {
+    $ionicPopup.alert({
+      title: 'AYUDA',
+      template: 'Descripcion de la ayuda'
+    });
   }
 }
