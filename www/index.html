@@ -40,7 +40,7 @@
         <button class="button button-clear icon ion-help-circled" style="vertical-align: 0;" ng-click="mostrarAyuda()"></button>
       </ion-header-bar>
 
-      <ion-content>
+      <ion-content style="background-color: skyblue;">
         <!-- Formulario nuevo jugador -->
         <div class="list card">
           <div class="item-divider">
@@ -61,8 +61,6 @@
                   <option selected>Nivel 1</option>
                   <option>Nivel 2</option>
                   <option>Nivel 3</option>
-                  <option>Nivel 4</option>
-                  <option>Nivel 5</option>
                 </select>
               </label>
             </div>
@@ -94,7 +92,7 @@
             </ion-item>
           </ion-list>
           <div style="text-align: center;" ng-show="jugadores.length > 0">
-            <button class="button button-balanced button-small" style="margin-bottom: 15px;">Hacer equipos</button>
+            <button class="button button-balanced button-small" style="margin-bottom: 15px;" ng-click="hacerEquipos()">Hacer equipos</button>
           </div>
         </div>
 
@@ -105,6 +103,14 @@
               <i class="icon ion-ios-football"></i> Equipos
             </h4>
           </div>
+          <div class="list" style="float: left; width: 50%; border-right: solid 2px black;" ng-show="equipoA.length > 0">
+            <div class="item item-divider" style="border-bottom: solid 1px black;">Equipo A</div>
+            <a class="item" ng-repeat="jug in equipoA"> {{jug.nombre}} </a>
+          </div>
+          <div class="list" style="float: left; width: 50%;" ng-show="equipoB.length > 0">
+            <div class="item item-divider" style="border-bottom: solid 1px black;">Equipo B</div>
+            <a class="item" ng-repeat="juga in equipoB"> {{juga.nombre}} </a>
+        </div>
         </div>
       </ion-content>
     </ion-pane>
