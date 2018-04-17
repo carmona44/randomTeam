@@ -62,13 +62,17 @@ function principalController($scope, $ionicPopup) {
   }
 
   $scope.hacerEquipos = function () {
+    var i = 0;
     $scope.porteros = [];
     $scope.nivel1 = [];
     $scope.nivel2 = [];
     $scope.nivel3 = [];
+    $scope.equipoA = [];
+    $scope.equipoB = [];
 
+    //Clasificación de los jugadores por categorías
     if ($scope.jugadores.length > 0){
-      for (var i=0; i<$scope.jugadores.length; i++){
+      for (i=0; i<$scope.jugadores.length; i++){
         $scope.jugador = $scope.jugadores[i];
         if($scope.jugador.esPortero){
           $scope.porteros.push($scope.jugador);
@@ -84,11 +88,89 @@ function principalController($scope, $ionicPopup) {
       }
     }
 
-    //Math.floor(Math.random() * 2)
+    //Creación de los equipos A y B
+    var indice = 0;
+    var mitad = 0;
 
-    console.log($scope.porteros);
-    console.log($scope.nivel2);
-    console.log($scope.nivel1);
-    console.log($scope.nivel3);
+    if($scope.porteros.length > 0){
+      mitad = $scope.porteros.length/2;
+      while($scope.porteros.length > mitad){
+        indice = Math.floor(Math.random() * $scope.porteros.length);
+        $scope.equipoA.push($scope.porteros[indice]);
+        $scope.porteros.splice(indice, 1);
+      }
+      for(i=0; i<$scope.porteros.length; i++){
+        $scope.equipoB.push($scope.porteros[i]);
+      }
+    }
+
+    if($scope.nivel1.length > 0){
+      mitad = $scope.nivel1.length/2;
+      if($scope.equipoA.length > $scope.equipoB.length){
+        while($scope.nivel1.length > mitad){
+          indice = Math.floor(Math.random() * $scope.nivel1.length);
+          $scope.equipoB.push($scope.nivel1[indice]);
+          $scope.nivel1.splice(indice, 1);
+        }
+        for(i=0; i<$scope.nivel1.length; i++){
+          $scope.equipoA.push($scope.nivel1[i]);
+        }
+      } else {
+        while($scope.nivel1.length > mitad){
+          indice = Math.floor(Math.random() * $scope.nivel1.length);
+          $scope.equipoA.push($scope.nivel1[indice]);
+          $scope.nivel1.splice(indice, 1);
+        }
+        for(i=0; i<$scope.nivel1.length; i++){
+          $scope.equipoB.push($scope.nivel1[i]);
+        }
+      }
+    }
+
+    if($scope.nivel3.length > 0){
+      mitad = $scope.nivel3.length/2;
+      if($scope.equipoA.length > $scope.equipoB.length){
+        while($scope.nivel3.length > mitad){
+          indice = Math.floor(Math.random() * $scope.nivel3.length);
+          $scope.equipoB.push($scope.nivel3[indice]);
+          $scope.nivel3.splice(indice, 1);
+        }
+        for(i=0; i<$scope.nivel3.length; i++){
+          $scope.equipoA.push($scope.nivel3[i]);
+        }
+      } else {
+        while($scope.nivel3.length > mitad){
+          indice = Math.floor(Math.random() * $scope.nivel3.length);
+          $scope.equipoA.push($scope.nivel3[indice]);
+          $scope.nivel3.splice(indice, 1);
+        }
+        for(i=0; i<$scope.nivel3.length; i++){
+          $scope.equipoB.push($scope.nivel3[i]);
+        }
+      }
+    }
+
+    if($scope.nivel2.length > 0){
+      mitad = $scope.nivel2.length/2;
+      if($scope.equipoA.length > $scope.equipoB.length){
+        while($scope.nivel2.length > mitad){
+          indice = Math.floor(Math.random() * $scope.nivel2.length);
+          $scope.equipoB.push($scope.nivel2[indice]);
+          $scope.nivel2.splice(indice, 1);
+        }
+        for(i=0; i<$scope.nivel2.length; i++){
+          $scope.equipoA.push($scope.nivel2[i]);
+        }
+      } else {
+        while($scope.nivel2.length > mitad){
+          indice = Math.floor(Math.random() * $scope.nivel2.length);
+          $scope.equipoA.push($scope.nivel2[indice]);
+          $scope.nivel2.splice(indice, 1);
+        }
+        for(i=0; i<$scope.nivel2.length; i++){
+          $scope.equipoB.push($scope.nivel2[i]);
+        }
+      }
+    }
   }
 }
