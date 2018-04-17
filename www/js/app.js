@@ -57,7 +57,10 @@ function principalController($scope, $ionicPopup) {
   $scope.mostrarAyuda = function () {
     $ionicPopup.alert({
       title: 'AYUDA',
-      template: 'Descripcion de la ayuda'
+      template: '<p>-> Nivel 1 = Nivel ALTO</p>' +
+                '<p>-> Nivel 2 = Nivel MEDIO</p>' +
+                '<p>-> Nivel 3 = Nivel BAJO</p><br>' +
+                '<p>* A los porteros no se les distingue por nivel</p>'
     });
   }
 
